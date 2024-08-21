@@ -1,0 +1,33 @@
+// codenarc-disable NoScriptBindings
+
+plugins {
+    // Most of our code is written in Groovy.
+    id 'groovy'
+    id 'java'
+
+    // https://github.com/ben-manes/gradle-versions-plugin
+    id 'com.github.ben-manes.versions' version '0.51.0'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+
+    // Some Jenkins dependencies require a dedicated Maven repository.
+    maven {
+        url 'https://repo.jenkins-ci.org/releases/'
+    }
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.groovy/groovy-all
+    implementation 'org.apache.groovy:groovy-all:4.0.22'
+
+    // https://mvnrepository.com/artifact/edu.hm.hafner/coverage-model
+    implementation 'edu.hm.hafner:coverage-model:0.46.0'
+}
+
+tasks.wrapper {
+    gradleVersion = '8.10'
+    distributionType = Wrapper.DistributionType.BIN
+}

@@ -1,0 +1,18 @@
+build
+dist
+*.egg-info
+*.pyc
+*.pyo
+*.swp
+*~
+.idea
+tmp
+venv
+jenkins_scripts
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
